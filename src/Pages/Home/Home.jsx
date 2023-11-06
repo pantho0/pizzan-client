@@ -3,6 +3,7 @@ import Chef1 from '../../../public/chef1.jpg'
 import Chef2 from '../../../public/chef2.jpg'
 import Chef3 from '../../../public/chef3.jpg'
 import Chef4 from '../../../public/chef4.jpg'
+import Burger from '../../../public/burgercover.jpg'
 
 const Home = () => {
     return (
@@ -45,7 +46,15 @@ const Home = () => {
             </div>
             {/* Promotional Offers */}
             <div>
-                
+                <div className='relative'>
+                    <div>
+                    <img className='w-full object-contain' src={Burger} alt="" />
+                    </div>
+                   <div className='absolute top-1/2 left-16'>
+                   <p className='-translate-y-8 text-[#EB0029] font-bold'>THE BEST BURGER PIZZAN</p>
+                   <h2 className='text-6xl font-extrabold text-white -translate-y-8'>DELICIOUS <br /> BURGE</h2>
+                   </div>
+                </div>
             </div>
             {/*Expert Chefs*/}
             <div className='mt-20 max-w-7xl mx-auto'>
