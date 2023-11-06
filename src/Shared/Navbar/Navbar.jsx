@@ -1,53 +1,77 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../../public/logo-white.svg'
+import { AuthContext } from '../../Auth/AuthProvider';
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext)
 
     const navLinks =
         <>
             <li>
-            <NavLink
-                to="/"
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-[#EB0029]" : ""
-                }
-            >
-                Home
-            </NavLink>
+                <NavLink
+                    to="/"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "text-[#EB0029]" : ""
+                    }
+                >
+                    Home
+                </NavLink>
             </li>
             <li>
-            <NavLink
-                to="/allfoods"
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "active" : ""
-                }
-            >
-                All Food Items
-            </NavLink>
+                <NavLink
+                    to="/allfoods"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "active" : ""
+                    }
+                >
+                    All Food Items
+                </NavLink>
             </li>
             <li>
-            <NavLink
-                to="/blog"
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "active" : ""
-                }
-            >
-                Blog
-            </NavLink>
+                <NavLink
+                    to="/blog"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "active" : ""
+                    }
+                >
+                    Blog
+                </NavLink>
             </li>
             <li>
-            <NavLink
-                to="/signup"
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "active" : ""
-                }
-            >
-                Signup
-            </NavLink>
+                <NavLink
+                    to="/signup"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "active" : ""
+                    }
+                >
+                    Signup
+                </NavLink>
             </li>
             <li>
-                <Link to={'/login'}><button className='btn'>Log IN </button></Link>
+                {
+                    user ?
+                        <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#010F1C] rounded-box w-52">
+                                <li>
+                                    <a className="justify-between">
+                                        Profile
+                                        <span className="badge">New</span>
+                                    </a>
+                                </li>
+                                <li><a>Settings</a></li>
+                                <li><a onClick={()=>logOut()}>Logout</a></li>
+                            </ul>
+                        </div>
+                        :
+                        <Link to={'/login'}><button className='btn'>Log IN </button></Link>
+                }
             </li>
 
         </>
@@ -69,7 +93,7 @@ const Navbar = () => {
                         <div className="flex-none hidden lg:block text-white">
                             <ul className="flex gap-4 items-center">
                                 {/* Navbar menu content here */}
-                               {navLinks}
+                                {navLinks}
                             </ul>
                         </div>
                     </div>
