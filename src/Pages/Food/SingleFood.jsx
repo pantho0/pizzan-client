@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const SingleFood = () => {
     const food = useLoaderData();
@@ -45,12 +45,14 @@ const SingleFood = () => {
                     </p>
                 </div>
                 <div class="p-6 pt-0">
+                    <Link to={`/food/purchase/${_id}`}>
                     <button
                         class="block w-full select-none rounded-lg bg-[#010F1C] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         type="button"
                     >
                         Add to Cart
                     </button>
+                    </Link>
                 </div>
             </div>
             </div>
