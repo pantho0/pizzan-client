@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../../public/logo-white.svg'
 
 const Navbar = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
             </li>
             <li>
             <NavLink
-                to="/food"
+                to="/allfoods"
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : ""
                 }
@@ -47,7 +47,7 @@ const Navbar = () => {
             </NavLink>
             </li>
             <li>
-                <button className='btn'>Log IN </button>
+                <Link to={'/login'}><button className='btn'>Log IN </button></Link>
             </li>
 
         </>
