@@ -1,17 +1,24 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Auth/AuthProvider";
+import axios from "axios";
 
 
 const Purchase = () => {
     const { user } = useContext(AuthContext)
-    console.log(user);
     const product = useLoaderData();
     const { _id, foodName, foodImage, foodCategory, price, madeBy, foodOrigin, description, availableQuantity, orderCount } = product;
-    console.log(product);
+    const orderdedItem = {foodName, foodImage, foodCategory, price, madeBy, foodOrigin, description, availableQuantity, orderCount}
+    const mergedOrder = {...user, ...orderdedItem}
 
     const handleConfirmOrder = () => {
-        
+       axios.post("http://localhost:5000/api/v1/confirmPurchase", mergedOrder)
+       .then(res =>{
+        console.log(res.data);
+       })
+       .catch(error =>{
+        console.log(error);
+       })
     }
 
     return (
