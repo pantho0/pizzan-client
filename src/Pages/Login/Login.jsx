@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Auth/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
     const {login} = useContext(AuthContext)
+    const notify = () => toast.error("Invalid Credentials")
+    const successNotify = () => toast.success("Login Successful")
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
@@ -15,14 +18,18 @@ const Login = () => {
         login(email, password)
         .then(res => {
             console.log(res.user)
+            successNotify()
         })
         .catch(error => {
-            console.log(error)
+            if(error){
+               notify()
+            }
         })
     }
 
     return (
         <div className="hero min-h-screen bg-base-200">
+            <Toaster/>
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>
@@ -47,6 +54,7 @@ const Login = () => {
                         </div>
                         <div className="text-center">
                             <p>Don't have an account <Link to={'/login'} className="text-[#EB0029]">Sign Up</Link> here</p>
+
                         </div>
                     </form>
                 </div>

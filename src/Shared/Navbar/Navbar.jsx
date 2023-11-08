@@ -3,11 +3,13 @@ import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../../public/logo-white.svg'
 import { AuthContext } from '../../Auth/AuthProvider';
 import userImg from '../../../public/userimg.png'
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext)
     console.log(user);
+    const notify = () => toast.success("Logout Successful")
 
     const navLinks =
         <>
@@ -68,7 +70,7 @@ const Navbar = () => {
                                     </Link>
                                 </li>
                                 <li><a>Settings</a></li>
-                                <li><a onClick={()=>logOut()}>Logout</a></li>
+                                <li><a onClick={()=>[logOut(), notify()]}>Logout</a></li>
                             </ul>
                         </div>
                         :
