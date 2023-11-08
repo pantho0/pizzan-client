@@ -2,10 +2,13 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../../public/logo-white.svg'
 import { AuthContext } from '../../Auth/AuthProvider';
+import userImg from '../../../public/userimg.png'
 
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext)
+    console.log(user);
+    const {photoURL} = user;
 
     const navLinks =
         <>
@@ -55,7 +58,7 @@ const Navbar = () => {
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    <img src={photoURL ? photoURL  : "/userimg.png" } />
                                 </div>
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#010F1C] rounded-box w-52">

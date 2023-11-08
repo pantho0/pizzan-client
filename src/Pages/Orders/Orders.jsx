@@ -15,7 +15,18 @@ const Orders = () => {
             })
     }, [orders])
 
-
+    const handleDeleteOrder = (id) =>{
+        axios.delete(`http://localhost:5000/api/v1/orders/${id}`)
+        .then(res => {
+            console.log(res.data);
+            useEffect(() => {
+                axios.get(url)
+                    .then(res => {
+                        setOrders(res.data)
+                    })
+            }, [orders])
+        })
+    }
     return (
         <div>
             <div className='text-center m-8'><h2 className='font-bold text-4xl'>My Orders</h2></div>
@@ -38,7 +49,7 @@ const Orders = () => {
                                 </tr>
                             </thead>
                             {
-                                orders.map(order => <OrdersTable key={order._id} order={order}></OrdersTable>)
+                                orders.map(order => <OrdersTable key={order._id} order={order} handleDeleteOrder={handleDeleteOrder}></OrdersTable>)
                             }
                         </table>
                     </div>
