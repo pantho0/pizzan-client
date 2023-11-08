@@ -9,7 +9,7 @@ const AllFood = () => {
     const [page, setPage] = useState([])
     const { count } = useLoaderData()
     const [currentPage, setCurrentPage] = useState(1)
-    const [itemsPerPage, setItemsPerPage] = useState(10)
+    const [itemsPerPage, setItemsPerPage] = useState(9)
 
  
     const numOfPages = Math.ceil(count / itemsPerPage)
@@ -36,6 +36,7 @@ const AllFood = () => {
     useEffect(()=>{
         axios.get(`http://localhost:5000/api/v1/foods?page=${currentPage}&limit=${itemsPerPage}`)
         .then(res => {
+            setIsLoading(true)
             setFoods(res.data)
             setIsLoading(false)
 
