@@ -7,12 +7,14 @@ import AddedFoodTable from "./AddedFoodTable";
 const AddedFoods = () => {
     const {user} = useContext(AuthContext)
     const [addedFoods, setAddedFood] = useState([])
-    const url = `http://localhost:5000/api/v1/foods?addedBy=${user.email}`
+    const [isLoading, setIsloading] = useState(true)
+    const url = `http://localhost:5000/api/v1/foods?addedBy=${user?.email}`
 
     useEffect(()=>{
         axios.get(url)
         .then(res => {
             setAddedFood(res.data)
+            setIsloading(false)
         })
     },[addedFoods])
 
@@ -38,7 +40,9 @@ const AddedFoods = () => {
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            {
+                            {   
+                                isLoading ? isLoading
+                                :
                                 addedFoods.map(food => <AddedFoodTable key={food._id} food={food}></AddedFoodTable>)
                             }
                         </table>

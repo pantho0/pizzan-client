@@ -8,7 +8,6 @@ const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext)
     console.log(user);
-    const {photoURL} = user;
 
     const navLinks =
         <>
@@ -58,7 +57,7 @@ const Navbar = () => {
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src={photoURL ? photoURL  : "/userimg.png" } />
+                                    <img src={user.photoURL ? user.photoURL  : "/userimg.png" } />
                                 </div>
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#010F1C] rounded-box w-52">
