@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../../public/logo-white.svg'
 import { AuthContext } from '../../Auth/AuthProvider';
 import userImg from '../../../public/userimg.png'
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Navbar = () => {
 
@@ -81,6 +81,7 @@ const Navbar = () => {
         </>
     return (
         <div className='max-w-7xl mx-auto '>
+            <Toaster/>
             <div className="drawer">
                 <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col">
