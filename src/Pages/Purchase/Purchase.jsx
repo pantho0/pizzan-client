@@ -12,7 +12,7 @@ const Purchase = () => {
     const mergedOrder = {...user, ...orderdedItem}
 
     const handleConfirmOrder = () => {
-       axios.post("http://localhost:5000/api/v1/confirmPurchase", mergedOrder)
+       axios.post("https://pizzan-server.vercel.app/api/v1/confirmPurchase", mergedOrder)
        .then(res =>{
         console.log(res.data);
        })

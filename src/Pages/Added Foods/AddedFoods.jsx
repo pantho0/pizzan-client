@@ -8,7 +8,7 @@ const AddedFoods = () => {
     const {user} = useContext(AuthContext)
     const [addedFoods, setAddedFood] = useState([])
     const [isLoading, setIsloading] = useState(true)
-    const url = `http://localhost:5000/api/v1/foods?addedBy=${user?.email}`
+    const url = `https://pizzan-server.vercel.app/api/v1/foods?addedBy=${user?.email}`
 
     useEffect(()=>{
         axios.get(url)

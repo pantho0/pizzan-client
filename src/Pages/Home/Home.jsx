@@ -14,7 +14,7 @@ const Home = () => {
     // console.log(foods);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/v1/foods")
+        axios.get("https://pizzan-server.vercel.app/api/v1/foods")
             .then(res => {
                 setFoods(res.data)
             })

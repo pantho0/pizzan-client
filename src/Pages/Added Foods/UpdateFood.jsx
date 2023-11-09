@@ -9,7 +9,7 @@ const UpdateFood = () => {
     const { id } = useParams()
     const { _id, addedBy, availableQuantity, description, foodCategory, foodImage, foodName, foodOrigin, madeBy, orderCount, price } = food;
     useEffect(() => {
-        axios.get(`http://localhost:5000/update/${id}`)
+        axios.get(`https://pizzan-server.vercel.app/update/${id}`)
             .then(res => {
                 console.log(res.data);
                 setFood(res.data)
@@ -36,7 +36,7 @@ const UpdateFood = () => {
         }
         console.log(item);
 
-        fetch(`http://localhost:5000/update/${_id}`, {
+        fetch(`https://pizzan-server.vercel.app/update/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

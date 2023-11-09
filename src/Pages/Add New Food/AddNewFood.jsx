@@ -26,7 +26,7 @@ const AddNewFood = () => {
         }
         console.log(item);
 
-        axios.post("http://localhost:5000/api/v1/addFood", item)
+        axios.post("https://pizzan-server.vercel.app/api/v1/addFood", item)
         .then(res => {
             console.log(res.data);
             

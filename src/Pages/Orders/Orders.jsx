@@ -6,7 +6,7 @@ import OrdersTable from './OrdersTable';
 const Orders = () => {
     const { user } = useContext(AuthContext)
     const [orders, setOrders] = useState([])
-    const url = `http://localhost:5000/api/v1/orders?email=${user?.email}`
+    const url = `https://pizzan-server.vercel.app/api/v1/orders?email=${user?.email}`
 
     useEffect(() => {
         axios.get(url, {withCredentials:true})
@@ -16,7 +16,7 @@ const Orders = () => {
     }, [orders])
 
     const handleDeleteOrder = (id) =>{
-        axios.delete(`http://localhost:5000/api/v1/orders/${id}`)
+        axios.delete(`https://pizzan-server.vercel.app/api/v1/orders/${id}`)
         .then(res => {
             console.log(res.data);
             useEffect(() => {

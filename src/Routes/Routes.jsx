@@ -38,17 +38,17 @@ const router = createBrowserRouter([
             {
                 path: '/allfoods',
                 element: <AllFood></AllFood>,
-                loader: () => fetch("http://localhost:5000/api/v1/productcount")
+                loader: () => fetch("https://pizzan-server.vercel.app/api/v1/productcount")
             },
             {
                 path: '/food/:id',
                 element: <SingleFood></SingleFood>,
-                loader : ({params}) => fetch(`http://localhost:5000/api/v1/foods/${params.id}`)
+                loader : ({params}) => fetch(`https://pizzan-server.vercel.app/api/v1/foods/${params.id}`)
             },
             {
                 path: '/food/purchase/:id',
                 element: <PrivateRoute><Purchase></Purchase></PrivateRoute>,
-                loader : ({params}) => fetch(`http://localhost:5000/api/v1/foods/${params.id}`)
+                loader : ({params}) => fetch(`https://pizzan-server.vercel.app/api/v1/foods/${params.id}`)
             },
             {
                 path: '/update/:id',

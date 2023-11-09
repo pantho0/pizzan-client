@@ -34,7 +34,7 @@ const AllFood = () => {
 
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/api/v1/foods?page=${currentPage}&limit=${itemsPerPage}`)
+        axios.get(`https://pizzan-server.vercel.app/api/v1/foods?page=${currentPage}&limit=${itemsPerPage}`)
         .then(res => {
             setIsLoading(true)
             setFoods(res.data)
