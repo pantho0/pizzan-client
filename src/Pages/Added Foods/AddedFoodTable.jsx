@@ -32,7 +32,7 @@ const AddedFoodTable = ({ food }) => {
                     </td>
                     <td>{foodOrigin}</td>
                     <th>
-                        <Link to={'/update'}><button className="btn btn-ghost btn-xs">Update</button></Link>
+                        <Link to={`/update/${_id}`}><button className="btn btn-ghost btn-xs">Update</button></Link>
                     </th>
                 </tr>
             </tbody>
