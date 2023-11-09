@@ -4,11 +4,11 @@ import { AuthContext } from '../Auth/AuthProvider';
 
 const PrivateRoute = ({children}) => {
 
-    const {user, loading} = useContext(AuthContext)
+    const {user, isLoading} = useContext(AuthContext)
     const location = useLocation();
     console.log(location.pathname);
 
-    if(loading){
+    if(isLoading){
         return (
            <div className='flex justify-center items-center h-screen'>
              <progress className="progress w-56"></progress>

@@ -18,7 +18,7 @@ const AddedFoods = () => {
         })
     },[addedFoods])
 
-    console.log(addedFoods);
+
     return (
         <div>
             <div className='text-center m-8'><h2 className='font-bold text-4xl'>My Added Foods </h2></div>

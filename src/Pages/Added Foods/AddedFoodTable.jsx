@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 
 
 const AddedFoodTable = ({ food }) => {
-    const { foodImage, foodName, price, foodOrigin, foodCategory } = food;
+    const { _id,foodImage, foodName, price, foodOrigin, foodCategory } = food;
+
     return (
 
             <tbody>
@@ -30,7 +32,7 @@ const AddedFoodTable = ({ food }) => {
                     </td>
                     <td>{foodOrigin}</td>
                     <th>
-                        <button className="btn btn-ghost btn-xs">details</button>
+                        <Link to={'/update'}><button className="btn btn-ghost btn-xs">Update</button></Link>
                     </th>
                 </tr>
             </tbody>

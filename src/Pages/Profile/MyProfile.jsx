@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
 const MyProfile = () => {
+    
     return (
         <div className='grid grid-cols-12 min-h-screen'>
             <div className='bg-[#010F1C] border-t-2 col-span-2 flex flex-col py-3'>

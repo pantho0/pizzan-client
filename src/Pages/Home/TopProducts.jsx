@@ -27,31 +27,18 @@ const TopProducts = ({food}) => {
                     <p class="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
                         Category : {foodCategory}
                     </p>
-                    <p class="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-                        Made By : {madeBy}
-                    </p>
                     </div>
-                    <div class="flex items-center justify-between mb-2">
-                    <p class="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-                        Origin : {foodOrigin}
-                    </p>
-                    <p class="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-                        Available Quantity : {availableQuantity}
-                    </p>
-                    </div>
-                    <p class="block font-sans text-sm antialiased font-normal leading-normal text-gray-700 opacity-75">
-                        {description}
-                    </p>
                 </div>
                 <div class="p-6 pt-0">
-                    <Link to={`/food/purchase/${_id}`}>
-                    <button
-                        class="block w-full select-none rounded-lg bg-[#010F1C] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                        type="button"
-                    >
-                        Add to Cart
-                    </button>
-                    </Link>
+                <Link to={`/food/${_id}`}>
+                <button
+                    class="block w-full select-none rounded-lg bg-[#010F1C] py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase text-white  hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                    type="button"
+                    data-ripple-light="true"
+                >
+                    Details
+                </button>
+                </Link>
                 </div>
             </div>
             </div>

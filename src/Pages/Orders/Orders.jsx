@@ -9,7 +9,7 @@ const Orders = () => {
     const url = `http://localhost:5000/api/v1/orders?email=${user?.email}`
 
     useEffect(() => {
-        axios.get(url)
+        axios.get(url, {withCredentials:true})
             .then(res => {
                 setOrders(res.data)
             })
