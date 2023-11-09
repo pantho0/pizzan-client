@@ -2,12 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Auth/AuthProvider';
 import axios from 'axios';
 import OrdersTable from './OrdersTable';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Orders = () => {
     const { user } = useContext(AuthContext)
     const [orders, setOrders] = useState([])
     const url = `https://pizzan-server.vercel.app/api/v1/orders?email=${user?.email}`
-
+    const notify = () => toast.success("Deleted Success")
     useEffect(() => {
         axios.get(url, {withCredentials:true})
             .then(res => {
@@ -23,12 +24,14 @@ const Orders = () => {
                 axios.get(url)
                     .then(res => {
                         setOrders(res.data)
+                        notify()
                     })
             }, [orders])
         })
     }
     return (
         <div>
+            <Toaster/>
             <div className='text-center m-8'><h2 className='font-bold text-4xl'>My Orders</h2></div>
             <div>
                 <div>
